@@ -1,6 +1,7 @@
 <?php
 
 include_once 'config.php';
+session_start();
 
 // Fungsi untuk registrasi
 function register($pdo, $email, $name, $phonenumber, $password, $gender)
@@ -38,7 +39,6 @@ function login($pdo, $email, $password)
 
         if ($user && password_verify($password, $user['password'])) {
             // Login berhasil
-            session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['role'] = $user['role'];
