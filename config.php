@@ -1,13 +1,21 @@
 <?php
-// Konfigurasi database
-define('DB_HOST', 'localhost'); // Host database
-define('DB_NAME', 'data_ella'); // Nama database
-define('DB_USER', 'root'); // Nama pengguna database
-define('DB_PASS', ''); // ganti ke kosong biasanya untuk default
+
+if (file_exists('.env')) {
+    $env = parse_ini_file('.env');
+    $dbHost = $env["DB_HOST"];
+    $dbUsername = $env["DB_USERNAME"];
+    $dbPassword = $env["DB_PASSWORD"];
+    $dbName = $env["DB_NAME"];
+} else {
+    $dbHost = getenv("DB_HOST");
+    $dbUsername = getenv("DB_USERNAME");
+    $dbPassword = getenv("DB_PASSWORD");
+    $dbName = getenv("DB_NAME");
+}
 
 try {
     // Membuat koneksi PDO
-    $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
+    $pdo = new PDO("mysql:host=" . $dbHost . ";dbname=" . $dbName, $dbUsername, $dbPassword);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch (PDOException $e) {

@@ -7,23 +7,13 @@
   <title>Ella Beauty Lash</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Yesteryear&display=swap" rel="stylesheet" />
-
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <?php
 session_start();
-
 ?>
 
 <style>
@@ -238,8 +228,27 @@ session_start();
   }
 
   @media (max-width: 768px) {
+    ul {
+      flex-direction: column;
+    }
+
     .container {
-      grid-template-columns: 1fr;
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .row {
+      flex-direction: column;
+    }
+
+    .card-ayam,
+    .card-bebek,
+    .card-kucing {
+      width: 100%;
+    }
+
+    .bb {
+      grid-template-rows: auto;
     }
 
     .contact-form {
@@ -294,13 +303,26 @@ session_start();
     font-weight: 400;
     font-style: normal;
   }
+
+  .hamburger {
+    display: none;
+    font-size: 30px;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+  }
 </style>
 
 <body>
   <div>
     <ul style="display: flex; justify-content: space-between; align-items: center;">
-      <div style="flex-shrink: 0;">
+      <div style="flex-shrink: 0; display: flex; justify-content: space-between; align-items: center;">
         <h2 class="b">Ella Beauty Lash</h2>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
       </div>
       <?php include('header.php'); ?>
     </ul>
@@ -320,18 +342,11 @@ session_start();
       <button class="w3-button w3-display-right" onclick="plusDivs(1)">
         &#10095;
       </button>
-      <div
-        class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
+      <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
         style="width: 100%">
-        <span
-          class="w3-badge demo w3-border w3-transparent w3-hover-white"
-          onclick="currentDiv(1)"></span>
-        <span
-          class="w3-badge demo w3-border w3-transparent w3-hover-white"
-          onclick="currentDiv(2)"></span>
-        <span
-          class="w3-badge demo w3-border w3-transparent w3-hover-white"
-          onclick="currentDiv(3)"></span>
+        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
       </div>
     </div>
     <script>
@@ -379,7 +394,8 @@ session_start();
       </div>
       <div class="content">
         <h2>Ella BeautyLash</h2>
-        <p>Ella beautylash berdiri sejak 2017 menawarkan treatment dengan ketelitian untuk mempercantik customer dipercaya hingga sekarang</p>
+        <p>Ella beautylash berdiri sejak 2017 menawarkan treatment dengan ketelitian untuk mempercantik customer
+          dipercaya hingga sekarang</p>
       </div>
     </div>
 
@@ -390,7 +406,8 @@ session_start();
       <div class="w3-row-padding w3-margin-top">
         <div class="w3-third">
           <div class="w3-card">
-            <img src="1 (2).jpg" style="width: 100%" class="w3-hover-opacity" alt="Norway" style="width:50%" />
+            <img src="1 (2).jpg" style="width: 100%" class="w3-hover-opacity" alt="Norway"
+              style="width:50%" />
             <div class="w3-container">
               <h5>Natural Premium</h5>
             </div>
@@ -408,7 +425,8 @@ session_start();
 
         <div class="w3-third">
           <div class="w3-card">
-            <img src="3 (2).jpg" style="width: 100%" class="w3-hover-opacity" alt="Norway" style="width:50%" />
+            <img src="3 (2).jpg" style="width: 100%" class="w3-hover-opacity" alt="Norway"
+              style="width:50%" />
             <div class="w3-container">
               <h5>Premium Dramatic</h5>
             </div>
@@ -481,17 +499,23 @@ session_start();
         <div class="card-ayam">
           <div class="icon-wrapper">💅</div>
           <h4>Nail Price</h4>
-          <div class="text-content">Kami menawarkan layanan Nail Price dengan desaain unik yang bisa disesuaikan dengan gaya dan kepribadianmu. dengan nuansa studio yang nyaman, dan teknisi berpengalaman, kami siap memberikan hasil yang memukau.</div>
+          <div class="text-content">Kami menawarkan layanan Nail Price dengan desaain unik yang bisa
+            disesuaikan dengan gaya dan kepribadianmu. dengan nuansa studio yang nyaman, dan teknisi
+            berpengalaman, kami siap memberikan hasil yang memukau.</div>
         </div>
         <div class="card-bebek">
           <div class="icon-wrapper">👁️</div>
           <h4>Eyelash</h4>
-          <div class="text-content">Lash artist bisa membuat eyelash kamu menjadi seperti yang diinginkan. Mau yang natural, yang panjang atau yang dramatis sekalipun. lash artist nenyiapkan jenis bulu mata yang sesuai dengan kebutuhanmu.</div>
+          <div class="text-content">Lash artist bisa membuat eyelash kamu menjadi seperti yang diinginkan. Mau
+            yang natural, yang panjang atau yang dramatis sekalipun. lash artist nenyiapkan jenis bulu mata
+            yang sesuai dengan kebutuhanmu.</div>
         </div>
         <div class="card-kucing">
           <div class="icon-wrapper">🏠</div>
           <h4>Home Service Price</h4>
-          <div class="text-content">Kami hadir untuk mempercantik kukumu dengan layanan home service price langsung dirumahmu. Dengan peralatan steril, bahan berkualitas, dan teknisi profesional, kami menjamin kenyamanan dan kebersihan, dan hasil maksimal.</div>
+          <div class="text-content">Kami hadir untuk mempercantik kukumu dengan layanan home service price
+            langsung dirumahmu. Dengan peralatan steril, bahan berkualitas, dan teknisi profesional, kami
+            menjamin kenyamanan dan kebersihan, dan hasil maksimal.</div>
         </div>
       </div>
     </div>
@@ -502,11 +526,7 @@ session_start();
       <div class="ktk">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d530.9912043112931!2d110.36239961286222!3d-7.7614032703258005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a585bc0594225%3A0x91fde0144d17010!2sElla%20Beauty%20Lash!5e0!3m2!1sen!2sid!4v1729865027558!5m2!1sen!2sid"
-          width="100%"
-          height="100%"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
+          width="100%" height="100%" style="border: 0" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>

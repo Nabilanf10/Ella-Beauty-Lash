@@ -196,7 +196,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
             }
 
             .container {
-                margin: 20px;
+                margin: 100px 20px;
                 padding: 15px;
             }
 
@@ -238,6 +238,16 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                 padding: 3px 6px;
             }
         }
+
+        #title {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            #title {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -246,7 +256,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     <div>
         <ul style="display: flex; justify-content: space-between; align-items: center;">
             <div style="flex-shrink: 0;">
-                <h2 class="b">Ella Beauty Lash</h2>
+                <h2 class="b" id="title">Ella Beauty Lash</h2>
             </div>
             <?php include('header_admin.php'); ?>
         </ul>
@@ -290,8 +300,10 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                                 <td><?php echo $reservasi['catatan']; ?></td>
                                 <td style="display:flex; gap:5px;">
                                     <?php if ($reservasi['status'] == 'pending'): ?>
-                                        <a href="admin_kelola_reservasi.php?action=acc&id=<?php echo $reservasi['id']; ?>" class="action-btn approve-btn">Setujui</a>
-                                        <a href="admin_kelola_reservasi.php?action=tolak&id=<?php echo $reservasi['id']; ?>" class="action-btn reject-btn">Tolak</a>
+                                        <a href="admin_kelola_reservasi.php?action=acc&id=<?php echo $reservasi['id']; ?>"
+                                            class="action-btn approve-btn">Setujui</a>
+                                        <a href="admin_kelola_reservasi.php?action=tolak&id=<?php echo $reservasi['id']; ?>"
+                                            class="action-btn reject-btn">Tolak</a>
                                     <?php else: ?>
                                         <span>-</span>
                                     <?php endif; ?>

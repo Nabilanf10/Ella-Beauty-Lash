@@ -163,15 +163,36 @@ $reservasi_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ul {
             list-style: none;
         }
+
+        .hamburger {
+            display: none;
+            font-size: 30px;
+        }
+
+        #topbar {
+            flex-direction: row;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            #topbar {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
 <body>
     <!-- Navbar -->
     <div>
-        <ul style="display: flex; justify-content: space-between; align-items: center;">
-            <div style="flex-shrink: 0;">
+        <ul style="display: flex; justify-content: space-between; align-items: center;" id="topbar">
+            <div style="flex-shrink: 0; display: flex; justify-content: space-between; align-items: center;">
                 <h2 class="b">Ella Beauty Lash</h2>
+                <div class="hamburger" onclick="toggleMenu()">☰</div>
             </div>
             <?php include('header.php'); ?>
         </ul>
